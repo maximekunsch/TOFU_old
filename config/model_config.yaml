@@ -29,5 +29,16 @@ pythia-1.4:
   answer_tag: "Answer: "
   flash_attention2: "false"
   gradient_checkpointing: "false"
+llava-phi-1.5:
+  hf_key: "llava-hf/llava-phi-1_5-hf"
+  vision_tower: "openai/clip-vit-large-patch14"
+  mm_projector_type: "mlp2x_gelu"
+  question_start_tag: "### Human:"
+  question_end_tag: "\n"
+  answer_tag: "### Assistant: "
+  flash_attention2: "false"
+  gradient_checkpointing: "true"
+  ft_model_path: "my_finetuned_llava_phi"
+
 
   

@@ -31,6 +31,8 @@ conda install pytorch pytorch-cuda=12.4 -c pytorch -c nvidia
 conda install -c "nvidia/label/cuda-12.4.0" cuda-toolkit
 pip install -r requirements.txt
 pip install natsort
+pip uninstall numpy
+pip install numpy==1.26.4
 pip uninstall torch
 pip install torch==2.2.2+cu121 --index-url https://download.pytorch.org/whl/cu121
 

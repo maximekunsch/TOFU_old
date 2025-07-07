@@ -1,5 +1,5 @@
 model_family: llama2-7b
-model_path: null
+model_path: /finetune/ft_epoch${num_epochs}_lr${lr}_${model_family}_${split}_wd${weight_decay}/chekpoint-1250/
 LoRA:
   r: 0
   alpha: 32

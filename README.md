@@ -57,14 +57,15 @@ CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node=1 --master_port=$master_port fi
 ## Forget models
 Make sure that the path of the model to be unlearned is correctly provided in the `config/model_config.yaml` file. To unlearn a model on a forget set, use the following command:
 ```
-export split=forget01  #forget05, forget10
+export split_forget=forget01  #forget05, forget10
 CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node=1 --master_port=$master_port forget.py --config-path=config --config-name=forget.yaml split=${split} batch_size=4 gradient_accumulation_steps=4 model_family=${model} lr=${lr}
 ```
 
 ## Evaluate models
 Once you have the model trained, you can generate the statistics used for evaluation with the following command:
 ```
-export split=forget01_perturbed  #forget05_perturbed, forget10_perturbed
+export split_eval=forget01_perturbed  #forget05_perturbed, forget10_perturbed
+export modele_settings=${model}_${forget_loss)_${split}_${split_forget}_${split_eval}_${num_epochs}
 CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node=1 --master_port=$master_port evaluate_util.py\
  model_family=$model split=$split\
  model_path=$model_path

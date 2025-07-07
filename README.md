@@ -66,6 +66,7 @@ Once you have the model trained, you can generate the statistics used for evalua
 ```
 export split_eval=forget01_perturbed  #forget05_perturbed, forget10_perturbed
 export modele_settings=${model}_${forget_loss)_${split}_${split_forget}_${split_eval}_${num_epochs}
+export model_path=Save_directory of forget
 CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node=1 --master_port=$master_port evaluate_util.py\
  model_family=$model split=$split\
  model_path=$model_path

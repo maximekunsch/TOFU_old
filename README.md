@@ -30,6 +30,19 @@ conda activate tofu
 conda install pytorch pytorch-cuda=12.4 -c pytorch -c nvidia
 conda install -c "nvidia/label/cuda-12.4.0" cuda-toolkit
 pip install -r requirements.txt
+pip install natsort
+pip uninstall torch
+pip install torch==2.2.2+cu121 --index-url https://download.pytorch.org/whl/cu121
+
+export CUDA_HOME=/usr/local/cuda
+export PATH=$CUDA_HOME/bin:$PATH
+export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+
+python -c "import torch; print(torch.__version__); print(torch.cuda.is_available()); print(torch.version.cuda)"
+# 2.2.2
+# True
+# 12.1
+
 pip install flash-attn --no-build-isolation
 ```
 

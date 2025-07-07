@@ -20,7 +20,7 @@ def printll(name, inp):
     print(name, [round(x, 4) for x in inp])
 
 class CustomTrainer(Trainer):
-    def compute_loss(self, model, inputs, return_outputs=False):
+    def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
         input_ids, labels, attention_mask = inputs
         # forward pass
         outputs = model(input_ids,labels=labels, attention_mask=attention_mask)
@@ -89,7 +89,7 @@ class CustomTrainerForgetting(Trainer):
         return model
     
 
-    def compute_loss(self, model, inputs, return_outputs=False):
+    def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
         if self.loss_type == "grad_ascent":
             forget_inputs, retain_inputs = inputs
             input_ids, labels, attention_mask = forget_inputs
